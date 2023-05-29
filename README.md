@@ -3,7 +3,7 @@
 <div align="center">
 
 
-  <h3><b>DriveTime</b></h3>
+  <h3><b>Rent A Ride</b></h3>
 
 </div>
 
