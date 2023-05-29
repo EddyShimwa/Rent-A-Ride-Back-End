@@ -30,9 +30,8 @@
 - [📝 License](#license)
 
 
-# 📖 hello-rails-react <a name="about-project"></a>
-
-**hello-rails-react is a fullstack project which displays greeting messages** 
+# 📖 Rent A Ride<a name="about-project"></a>
+Api built with Ruby on Rails for car rental management system. API allows to reserve a car, add a new car or delete an existing one.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -87,7 +86,7 @@ Clone this repository to your desired folder:
 
 ```sh
   cd my-folder
-  git clone https://github.com/EddyShimwa/DriveTime-Back-End.git
+  git clone https://github.com/EddyShimwa/Rent-A-Ride-Back-End.git
 ```
 
 ### Install
@@ -143,7 +142,7 @@ gem install rspec
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/EddyShimwa/DriveTime-Back-End/issues).
+Feel free to check the [issues page](https://github.com/EddyShimwa/Rent-A-Ride-Back-End/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
