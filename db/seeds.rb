@@ -46,3 +46,7 @@ car8 = Car.create(name: "BMW", model: "X5 Plug In Hybrid XDrive40e", description
 frontImage = Image.create(url: "https://img2.carmax.com/img/vehicles/24138090/5.jpg?width=2400&ratio=16/9", car_id: car8.id)
 sideImage = Image.create(url: "https://img2.carmax.com/img/vehicles/24138090/3.jpg?width=2400&ratio=16/9", car_id: car8.id)
 backImage = Image.create(url: "https://img2.carmax.com/img/vehicles/24138090/2.jpg?width=2400&ratio=16/9", car_id: car8.id)
+
+#Rentals 
+firstRental = Rental.create(start_date: Date.today, end_date: Date.today + 7.days, city: "Lagos", price_per_day: 754, car_id: car1.id, user_id: admin.id)
+secondRental = Rental.create(start_date: Date.today, end_date: Date.today + 7.days, city: "New York", price_per_day: 310, car_id: car5.id, user_id: admin.id)
