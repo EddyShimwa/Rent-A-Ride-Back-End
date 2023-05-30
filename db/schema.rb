@@ -1,4 +1,5 @@
 
+
 ActiveRecord::Schema[7.0].define(version: 2023_05_30_101520) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -9,7 +10,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_30_101520) do
     t.string "description"
     t.integer "rating"
     t.decimal "price", precision: 10, scale: 2
-    t.integer "rent_per_day"
+    t.decimal "rent_per_day"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
