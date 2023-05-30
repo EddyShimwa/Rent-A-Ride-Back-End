@@ -1,5 +1,5 @@
 class RentalsController < ApplicationController
-  before_action :set_rental, only: %i[ show update destroy ]
+  before_action :set_rental, only: %i[show update destroy]
 
   # GET /rentals
   def index
@@ -39,13 +39,14 @@ class RentalsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_rental
-      @rental = Rental.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def rental_params
-      params.require(:rental).permit(:start_date, :end_date, :city, :price_per_day, :car_id, :user_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_rental
+    @rental = Rental.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def rental_params
+    params.require(:rental).permit(:start_date, :end_date, :city, :price_per_day, :car_id, :user_id)
+  end
 end
