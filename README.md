@@ -3,7 +3,7 @@
 <div align="center">
 
 
-  <h3><b>DriveTime</b></h3>
+  <h3><b>Rent-A-Ride</b></h3>
 
 </div>
 
@@ -30,9 +30,9 @@
 - [📝 License](#license)
 
 
-# 📖 hello-rails-react <a name="about-project"></a>
+# 📖 Rent-A-Ride <a name="about-project"></a>
 
-**hello-rails-react is a fullstack project which displays greeting messages** 
+**Rent-A-Ride is a Api built with Ruby on Rails for car rental management system. API allows to do a car rental, add a new car or delete an existing one.** 
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -62,9 +62,6 @@
 ## 🚀 Live Demo <a name="live-demo"></a>
 
 
-- Live Demo to be implemented
-
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
@@ -87,7 +84,7 @@ Clone this repository to your desired folder:
 
 ```sh
   cd my-folder
-  git clone https://github.com/EddyShimwa/DriveTime-Back-End.git
+  git clone https://github.com/EddyShimwa/Rent-A-Ride-Back-End.git
 ```
 
 ### Install
@@ -126,13 +123,21 @@ gem install rspec
 - Twitter: [Eddy](https://twitter.com/eddy56388406)
 - LinkedIn: [Pray Eddy SHIMWA](https://www.linkedin.com/in/eddy-pray-shimwa/)
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+👤 **Kennedy Owusu**
+
+- GitHub: [Kennedy Owusu](https://github.com/kennedyowusu)
+- Twitter: [Eddy](https://twitter.com/_iamkobby)
+- LinkedIn: [Kennedy Owusu](https://https//www.linkedin.com/in/kennedy-owusu/)
+
+👤 **Pierre Celestin**
+
+- GitHub: [Pierre Celestin](https://github.com/Piercel2022)
+- Twitter: [Pierre Celestin](https://twitter.com/pier_celestin)
+- LinkedIn: [Pierre Celestin](https://linkedin.com/in/piercelestinmax)
 
 <!-- FUTURE FEATURES -->
 
 ## 🔭 Future Features <a name="future-features"></a>
-
-- [ ] **[I'll improve sylings.]**
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -143,7 +148,7 @@ gem install rspec
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/EddyShimwa/DriveTime-Back-End/issues).
+Feel free to check the [issues page](https://github.com/EddyShimwa/Rent-A-Ride-Back-End/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
