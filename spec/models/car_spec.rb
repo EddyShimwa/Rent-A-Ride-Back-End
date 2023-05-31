@@ -2,23 +2,23 @@ require 'rails_helper'
 
 ## testing car model
 RSpec.describe Car, type: :model do
-    let(:user) { create(:user) }
-    let(:car) do
-      Car.create(
-        name: 'MERCEDES BENZ G CLASS',
-        description: 'MERCEDES G63 AMG - SERIES 21: S21-02',
-        rent_per_day: '210',
-        user:
-      )
-    end
-  
-    it 'car should be valid with a name' do
-      car.name = 'MERCEDES BENZ G CLASS'
-      expect(car).to be_valid
-    end
-  
-    it 'is not valid with a description smaller than 1000' do
-      car.description = 'Contrary to popular belief, Lorem Ipsum is not simply random text.
+  let(:user) { create(:user) }
+  let(:car) do
+    Car.create(
+      name: 'MERCEDES BENZ G CLASS',
+      description: 'MERCEDES G63 AMG - SERIES 21: S21-02',
+      rent_per_day: '210',
+      user:
+    )
+  end
+
+  it 'car should be valid with a name' do
+    car.name = 'MERCEDES BENZ G CLASS'
+    expect(car).to be_valid
+  end
+
+  it 'is not valid with a description smaller than 1000' do
+    car.description = 'Contrary to popular belief, Lorem Ipsum is not simply random text.
       It has roots in a piece of classical Latin literature from 45 BC, making it over 2000
       years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia,
       looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going
@@ -30,15 +30,15 @@ RSpec.describe Car, type: :model do
       is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et
       Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions
       from the 1914 translation by H. Rackham.'
-      expect(car).to be_valid
-    end
-
-    it 'is not valid without a price' do
-      car.rent_per_day = nil
-      expect(car).to_not be_valid
-    end
-    it 'is not valid without a price greater than 0' do
-      car.rent_per_day = -50
-      expect(car).to_not be_valid
-    end
+    expect(car).to be_valid
   end
+
+  it 'is not valid without a price' do
+    car.rent_per_day = nil
+    expect(car).to_not be_valid
+  end
+  it 'is not valid without a price greater than 0' do
+    car.rent_per_day = -50
+    expect(car).to_not be_valid
+  end
+end

@@ -6,7 +6,8 @@ RSpec.describe Car, type: :model do
     mycar = Car.create(name: 'toyota', model: 'v8', description: 'the best car in the city', price: 200.7,
                        rent_per_day: 2, user_id: myuser.id)
     Image.create(
-      url: 'https://www.mbusa.com/content/dam/mb-nafta/us/myco/my23/g/class-page/series/2023-G-SUV-HERO-DR.jpg', car: mycar  )
+      url: 'https://www.mbusa.com/content/dam/mb-nafta/us/myco/my23/g/class-page/series/2023-G-SUV-HERO-DR.jpg', car: mycar
+    )
   end
   before { subject.save }
 

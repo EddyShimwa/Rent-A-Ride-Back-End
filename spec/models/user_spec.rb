@@ -36,5 +36,4 @@ RSpec.describe User, type: :model do
     expect(User.where('lower(email) = ?', lowercase_email.downcase).first).to eq(subject)
     expect(User.where('lower(email) = ?', uppercase_email.downcase).first).to eq(subject)
   end
-
 end
