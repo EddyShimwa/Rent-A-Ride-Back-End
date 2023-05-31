@@ -9,7 +9,7 @@ default: &default
   encoding: unicode
   host: localhost
   username: postgres
-  password: password
+  password: pier614540
   pool: 5
 
 development:
@@ -23,5 +23,4 @@ test:
 production:
   <<: *default
   database: rent_a_ride_production
-  username: rent_a_ride
-  password: <%= ENV['RENT_A_RIDE_DATABASE_PASSWORD'] %>
+  
