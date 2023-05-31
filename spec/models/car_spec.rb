@@ -1,44 +1,36 @@
 require 'rails_helper'
 
-## testing car model
-RSpec.describe Car, type: :model do
-  let(:user) { create(:user) }
-  let(:car) do
-    Car.create(
-      name: 'MERCEDES BENZ G CLASS',
-      description: 'MERCEDES G63 AMG - SERIES 21: S21-02',
-      rent_per_day: '210',
-      user:
-    )
+RSpec.describe Rental, type: :model do
+  subject do
+    myuser = User.create(email: 'example@example.com', password: 'password', name: 'Peter')
+    mycar = Car.create(name: "Chevrolet Silverado", model: "1500 Custom", description: "Popular full-size pickup truck manufactured by General Motors under the Chevrolet brand.", rating: 2, price: 70.6, rent_per_day: 98.99, user_id: myuser.id)
+  end
+  before { subject.save }
+
+  describe 'validations' do
+    it 'is valid with valid attributes' do
+      expect(subject).to be_valid
+    end
+
+    it 'is not valid without a number of rents one day' do
+      subject.rent_per_day = nil
+      expect(subject).to_not be_valid
+    end
+
+    it 'is not valid without a description' do
+      subject.description = nil
+      expect(subject).to_not be_valid
+    end
+
+    it 'it should always have a model ' do
+      subject.model = 'H432'
+      expect(subject).to be_valid
+    end
   end
 
-  it 'car should be valid with a name' do
-    car.name = 'MERCEDES BENZ G CLASS'
-    expect(car).to be_valid
-  end
-
-  it 'is not valid with a description smaller than 1000' do
-    car.description = 'Contrary to popular belief, Lorem Ipsum is not simply random text.
-      It has roots in a piece of classical Latin literature from 45 BC, making it over 2000
-      years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia,
-      looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going
-      through the cites of the word in classical literature, discovered the undoubtable source.
-      Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The
-      Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of
-      ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit
-      amet..", comes from a line in section 1.10.32. The standard chunk of Lorem Ipsum used since the 1500s
-      is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et
-      Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions
-      from the 1914 translation by H. Rackham.'
-    expect(car).to be_valid
-  end
-
-  it 'is not valid without a price' do
-    car.rent_per_day = nil
-    expect(car).to_not be_valid
-  end
-  it 'is not valid without a price greater than 0' do
-    car.rent_per_day = -50
-    expect(car).to_not be_valid
+  describe 'associations' do
+    it 'belongs to a user' do
+      expect(subject.user).to be_instance_of(User)
+    end
   end
 end

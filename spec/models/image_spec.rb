@@ -2,12 +2,9 @@ require 'rails_helper'
 
 RSpec.describe Car, type: :model do
   subject do
-    myuser = User.create(name: 'Eddy')
-    mycar = Car.create(name: 'toyota', model: 'v8', description: 'the best car in the city', price: 200.7,
-                       rent_per_day: 2, user_id: myuser.id)
-    Image.create(
-      url: 'https://www.mbusa.com/content/dam/mb-nafta/us/myco/my23/g/class-page/series/2023-G-SUV-HERO-DR.jpg', car: mycar
-    )
+    myuser = User.create(email: 'example@example.com', password: 'password', name: 'Peter')
+    mycar = Car.create(name: "NISSAN", model: "Titan SL", description: "Titan SL is typically equipped with a 2.4-liter four-cylinder engine, providing a balance of power and fuel efficiency. It is front-wheel drive and may come with a six-speed automatic transmission.", rating: 2, price: 78.6, rent_per_day: 98.99, user_id: myuser.id)
+    Image.create(url: 'https://www.mbusa.com/content/dam/mb-nafta/us/myco/my23/g/class-page/series/2023-G-SUV-HERO-DR.jpg', car_id: mycar.id)
   end
   before { subject.save }
 
@@ -15,7 +12,7 @@ RSpec.describe Car, type: :model do
     expect(subject).to be_valid
   end
 
-  it 'Name should not be nil' do
+  it 'should be invalid when no url' do
     subject.url = nil
     expect(subject).to_not be_valid
   end
