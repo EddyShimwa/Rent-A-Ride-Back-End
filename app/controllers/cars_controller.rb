@@ -4,19 +4,18 @@ class CarsController < ApplicationController
   # GET /cars
   def index
     @cars = Car.all
-
     render json: @cars
   end
 
   # GET /cars/1
   def show
-    render json: @car
+    # render json: @car
+    render json: Car.find(@car.id)
   end
 
   # POST /cars
   def create
     @car = Car.new(car_params)
-
     if @car.save
       render json: @car, status: :created, location: @car
     else
@@ -27,7 +26,7 @@ class CarsController < ApplicationController
   # PATCH/PUT /cars/1
   def update
     if @car.update(car_params)
-      render json: @car
+      render json: 'Car updated successfully'
     else
       render json: @car.errors, status: :unprocessable_entity
     end
@@ -36,6 +35,7 @@ class CarsController < ApplicationController
   # DELETE /cars/1
   def destroy
     @car.destroy
+    render json: 'Car deleted successfully'
   end
 
   private
