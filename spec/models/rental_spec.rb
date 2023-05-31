@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Rental, type: :model do
   subject do
-    myuser = User.create(name: 'Eddy')
-    mycar = Car.create(name: 'toyota', model: 'v8', description: 'the best car in the city', rating: 5 price: 200.7,
+    myuser = User.create(email: 'example@example.com', password: 'password', name: 'Peter')
+    mycar = Car.create(name: 'toyota', model: 'v8', description: 'the best car in the city', rating: 5, price: 200.7,
                        rent_per_day: 2, user_id: myuser.id)
     Rental.create(
       start_date: Date.today,
