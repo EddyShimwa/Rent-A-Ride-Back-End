@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Reservation, type: :model do
+RSpec.describe Rental, type: :model do
   subject do
     myuser = User.create(name: 'Eddy')
     mycar = Car.create(name: 'toyota', model: 'v8', description: 'the best car in the city', rating: 5 price: 200.7,
@@ -16,5 +16,34 @@ RSpec.describe Reservation, type: :model do
   end
   before { subject.save }
 
-  
+  describe 'validations' do
+    it 'is valid with valid attributes' do
+      expect(subject).to be_valid
+    end
+
+    it 'is not valid without a price per one day' do
+      subject.price_per_day = nil
+      expect(subject).not_to be_valid
+    end
+
+    it 'is not valid without a city' do
+      subject.city = nil
+      expect(subject).to_not be_valid
+    end
+
+    it 'is should always have a city name' do
+      subject.city = 'Oklahoma'
+      expect(subject).to be_valid
+    end
+  end
+
+  describe 'associations' do
+    it 'belongs to a user' do
+      expect(subject.user).to be_instance_of(User)
+    end
+
+    it 'should have city name' do
+      expect(subject.car).to be_instance_of(Car)
+    end
+  end
 end
