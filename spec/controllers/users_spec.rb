@@ -1,87 +1,114 @@
 require 'rails_helper'
 
-describe 'Users API' do
-  path '/users' do
-    get 'Fetches all users' do
-      tags 'Users'
-      produces 'application/json'
+RSpec.describe UsersController, type: :controller do
+  describe 'GET #index' do
+    it 'returns a JSON response with all rentals' do
+      # Create some rentals in the database
+      myuser = User.create(email: 'example@example.com', password: 'password', name: 'Peter')
+      get :index
 
-      response '200', 'OK' do
-        schema type: :array,
-               items: {
-                 type: :object,
-                 properties: {
-                   id: { type: :integer },
-                   name: { type: :string },
-                   email: { type: :string },
-                   role: { type: :string }
-                 },
-                 required: %w[id name email role]
-               }
+      expect(response).to have_http_status(200)
+      expect(JSON.parse(response.body)).to eq([myuser.as_json])
+    end
+  end
 
-        run_test!
+  describe 'GET #show' do
+    it 'returns a JSON response with the specified user' do
+      user = User.create(name: 'John', email: 'john@example.com', password: 'password')
+
+      get :show, params: { id: user.id }
+
+      expect(response).to have_http_status(200)
+      expect(JSON.parse(response.body)).to include(
+        'id' => user.id,
+        'name' => 'John',
+        'email' => 'john@example.com'
+      )
+    end
+    it 'returns a JSON response with the specified user' do
+      user = User.create(name: 'John', email: 'john@example.com', password: 'password')
+
+      get :show, params: { id: user.id }
+
+      expect(response).to have_http_status(200)
+      expect(JSON.parse(response.body)).to include(
+        'id' => user.id,
+        'name' => 'John',
+        'email' => 'john@example.com'
+      )
+    end
+  end
+
+  describe 'POST #create' do
+    context 'with valid parameters' do
+      it 'creates a new user and returns a JSON response with status code 201' do
+        user_params = { name: 'John', email: 'john@example.com', password: 'password' }
+
+        post :create, params: { user: user_params }
+
+        expect(response).to have_http_status(201)
+        expect(JSON.parse(response.body)).to include(
+          'user' => include(
+            'name' => 'John',
+            'email' => 'john@example.com'
+          ),
+          'jwt' => be_present
+        )
       end
     end
 
-    post 'Creates a user' do
-      tags 'Users'
-      consumes 'application/json'
-      parameter name: :user, in: :body, schema: {
-        type: :object,
-        properties: {
-          name: { type: :string },
-          email: { type: :string },
-          password: { type: :string },
-          role: { type: :string }
-        },
-        required: %w[name email password role]
-      }
+    context 'with invalid parameters' do
+      it 'returns a JSON response with the error message and status code 406' do
+        user_params = { name: 'John', email: '', password: 'password' }
 
-      response '201', 'user created' do
-        let(:user) { { name: 'John Doe', email: 'john.doe@example.com', password: 'password123', role: 'user' } }
-        run_test!
-      end
+        post :create, params: { user: user_params }
 
-      response '422', 'invalid request' do
-        let(:user) { { name: 'John Doe', email: 'john.doe@example.com', password: 'password123' } }
-        run_test!
+        expect(response).to have_http_status(406)
+        expect(JSON.parse(response.body)).to include('error' => 'failed to create user')
       end
     end
   end
 
-  path '/users/{id}' do
-    get 'Retrieves a user' do
-      tags 'Users'
-      produces 'application/json'
-      parameter name: :id, in: :path, type: :integer
+  describe 'POST #login' do
+    context 'with valid credentials' do
+      it 'returns a JSON response with the user and JWT token' do
+        user = User.create(name: 'John', email: 'john@example.com', password: 'password')
 
-      response '200', 'OK' do
-        schema type: :object,
-               properties: {
-                 id: { type: :integer },
-                 name: { type: :string },
-                 email: { type: :string },
-                 role: { type: :string }
-               },
-               required: %w[id name email role]
+        post :login, params: { email: 'john@example.com', password: 'password' }
 
-        let(:user) { create(:user) }
-        let(:id) { user.id }
-
-        run_test!
+        expect(response).to have_http_status(202)
+        expect(JSON.parse(response.body)).to include(
+          'user' => include(
+            'id' => user.id,
+            'name' => 'John',
+            'email' => 'john@example.com'
+          ),
+          'jwt' => be_present
+        )
       end
     end
 
-    delete 'Deletes a user' do
-      tags 'Users'
-      parameter name: :id, in: :path, type: :integer
+    context 'with invalid credentials' do
+      it 'returns a JSON response with the error message and status code 401' do
+        User.create(name: 'John', email: 'john@example.com', password: 'password')
 
-      response '200', 'user deleted successfully' do
-        let(:user) { create(:user) }
-        let(:id) { user.id }
+        post :login, params: { email: 'john@example.com', password: 'wrong_password' }
 
-        run_test!
+        expect(response).to have_http_status(401)
+        expect(JSON.parse(response.body)).to include('error' => 'Invalid email or password')
       end
+    end
+  end
+
+  describe 'DELETE #destroy' do
+    it 'deletes the user and returns a JSON response with status code 200' do
+      user = User.create(name: 'John', email: 'john@example.com', password: 'password')
+
+      delete :destroy, params: { id: user.id }
+
+      expect(response).to have_http_status(200)
+      expect(response.body).to eq 'User deleted successfully'
+      expect(User.find_by(id: user.id)).to be_nil
     end
   end
 end
