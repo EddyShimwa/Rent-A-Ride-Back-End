@@ -26,10 +26,17 @@ RSpec.describe Rental, type: :model do
       subject.model = 'H432'
       expect(subject).to be_valid
     end
+
+    it 'should be valid with valid attributes' do
+      expect(subject).to be_valid
+    end
   end
 
   describe 'associations' do
     it 'belongs to a user' do
+      expect(subject.user).to be_instance_of(User)
+    end    
+    it 'is the instance of user' do
       expect(subject.user).to be_instance_of(User)
     end
   end
