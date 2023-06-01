@@ -9,7 +9,7 @@ class CarsController < ApplicationController
 
   # GET /cars/1
   def show
-    # render json: @car
+   @car = Car.find(params[:id])
     render json: Car.find(@car.id)
   end
 
