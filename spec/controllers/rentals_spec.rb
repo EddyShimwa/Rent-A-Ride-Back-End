@@ -42,6 +42,17 @@ RSpec.describe RentalsController, type: :controller do
         expect(response).to have_http_status(201)
         expect(JSON.parse(response.body)).to include('start_date' => '2023-06-01', 'end_date' => '2023-06-05')
       end
+      
+      it 'creates a new rental and returns a JSON response with status code 201' do
+        myuser = User.create(email: 'example@example.com', password: 'password', name: 'Peter')
+        car = Car.create(name: 'Car 1', model: 'Model 1', description: 'Description 1', rating: 4.5, price: 10000, rent_per_day: 50, user_id: myuser.id)
+        rental_params = { start_date: '2023-06-01', end_date: '2023-06-05', city: 'City 3', price_per_day: 120, car_id: car.id, user_id: myuser.id }
+
+        post :create, params: { rental: rental_params }
+
+        expect(response).to have_http_status(201)
+        expect(JSON.parse(response.body)).to include('start_date' => '2023-06-01', 'end_date' => '2023-06-05')
+      end
     end
 
     context 'with invalid parameters' do
