@@ -36,6 +36,7 @@ class RentalsController < ApplicationController
   # DELETE /rentals/1
   def destroy
     @rental.destroy
+    render json: 'Rental deleted successfully'
   end
 
   private
