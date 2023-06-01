@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'Cars', type: :request do
   subject do
-    myuser = User.create(email: 'example@example.com', password: 'password',)
+    myuser = User.create(email: 'example@example.com', password: 'password')
     Car.create(name: 'Chevrolet Silverado', model: '1500 Custom', description: 'Popular full-size pickup truck manufactured by General Motors under the Chevrolet brand.', rating: 2, price: 70.6, rent_per_day: 98.99, user_id: myuser.id)
   end
 
@@ -34,21 +34,20 @@ describe 'Cars', type: :request do
           rating: 2,
           model: 'j66',
           price: 210,
-          rent_per_day: 210.6,
+          rent_per_day: 210.6
         }
       }
-  
+
       headers = {
         Authorization: 'Bearer abc123',
         'Content-Type': 'application/json'
       }
-  
-      post '/cars', params: params.to_json, headers: headers
+
+      post('/cars', params: params.to_json, headers:)
       expect(response).to have_http_status(:unprocessable_entity)
     end
   end
-  
-  
+
   describe 'POST /create with valid JWT token' do
     it 'should return unauthorized status code' do
       params = {
@@ -66,15 +65,14 @@ describe 'Cars', type: :request do
           ]
         }
       }
-  
+
       headers = {
         Authorization: 'Bearer abc123',
         'Content-Type': 'application/json'
       }
-  
-      post '/cars', params: params.to_json, headers: headers
+
+      post('/cars', params: params.to_json, headers:)
       expect(response).to have_http_status(:unprocessable_entity)
     end
   end
 end
-

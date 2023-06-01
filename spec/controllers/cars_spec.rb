@@ -5,8 +5,8 @@ RSpec.describe CarsController, type: :controller do
     it 'returns a JSON response with all cars' do
       # Create some cars in the database
       myuser = User.create(email: 'example@example.com', password: 'password', name: 'Peter')
-      car1 = Car.create(name: 'Car 1', model: 'Model 1', description: 'Description 1', rating: 4.5, price: 10000, rent_per_day: 50, user_id: myuser.id)
-      car2 = Car.create(name: 'Car 2', model: 'Model 2', description: 'Description 2', rating: 4.0, price: 15000, rent_per_day: 75, user_id: myuser.id)
+      car1 = Car.create(name: 'Car 1', model: 'Model 1', description: 'Description 1', rating: 4.5, price: 10_000, rent_per_day: 50, user_id: myuser.id)
+      car2 = Car.create(name: 'Car 2', model: 'Model 2', description: 'Description 2', rating: 4.0, price: 15_000, rent_per_day: 75, user_id: myuser.id)
 
       get :index
 
@@ -19,7 +19,7 @@ RSpec.describe CarsController, type: :controller do
     it 'returns a JSON response with the specified car' do
       # Create a car in the database
       myuser = User.create(email: 'example@example.com', password: 'password', name: 'Peter')
-      car = Car.create(name: 'Car 1', model: 'Model 1', description: 'Description 1', rating: 4.5, price: 10000, rent_per_day: 50, user_id: myuser.id)
+      car = Car.create(name: 'Car 1', model: 'Model 1', description: 'Description 1', rating: 4.5, price: 10_000, rent_per_day: 50, user_id: myuser.id)
 
       get :show, params: { id: car.id }
 
@@ -31,8 +31,8 @@ RSpec.describe CarsController, type: :controller do
   describe 'POST #create' do
     context 'with valid parameters' do
       it 'creates a new car and returns a JSON response with status code 201' do
-          myuser = User.create(email: 'example@example.com', password: 'password', name: 'Peter')
-          car_params = { name: 'Car 3', model: 'Model 3', description: 'Description 3', rating: 4.2, price: 12000, rent_per_day: 60, user_id: myuser.id }
+        myuser = User.create(email: 'example@example.com', password: 'password', name: 'Peter')
+        car_params = { name: 'Car 3', model: 'Model 3', description: 'Description 3', rating: 4.2, price: 12_000, rent_per_day: 60, user_id: myuser.id }
 
         post :create, params: { car: car_params }
 
@@ -54,25 +54,23 @@ RSpec.describe CarsController, type: :controller do
     end
   end
 
+  context 'with invalid parameters' do
+    it 'returns a JSON response with the car errors and status code 422' do
+      myuser = User.create(email: 'example@example.com', password: 'password', name: 'Peter')
+      car = Car.create(name: 'Car 1', model: 'Model 1', description: 'Description 1', rating: 4.5, price: 10_000, rent_per_day: 50, user_id: myuser.id)
+      car_params = { name: '', model: 'Updated Model' }
 
+      patch :update, params: { id: car.id, car: car_params }
 
-    context 'with invalid parameters' do
-      it 'returns a JSON response with the car errors and status code 422' do
-        myuser = User.create(email: 'example@example.com', password: 'password', name: 'Peter')
-        car = Car.create(name: 'Car 1', model: 'Model 1', description: 'Description 1', rating: 4.5, price: 10000, rent_per_day: 50, user_id: myuser.id)
-        car_params = { name: '', model: 'Updated Model' }
-
-        patch :update, params: { id: car.id, car: car_params }
-
-        expect(response).to have_http_status(422)
-        expect(JSON.parse(response.body)).to include('name' => ["can't be blank"])
-      end
+      expect(response).to have_http_status(422)
+      expect(JSON.parse(response.body)).to include('name' => ["can't be blank"])
+    end
   end
 
   describe 'DELETE #destroy' do
     it 'deletes the car and returns a JSON response with status code 200' do
       myuser = User.create(email: 'example@example.com', password: 'password', name: 'Peter')
-      car = Car.create(name: 'Car 1', model: 'Model 1', description: 'Description 1', rating: 4.5, price: 10000, rent_per_day: 50, user_id: myuser.id)
+      car = Car.create(name: 'Car 1', model: 'Model 1', description: 'Description 1', rating: 4.5, price: 10_000, rent_per_day: 50, user_id: myuser.id)
 
       delete :destroy, params: { id: car.id }
 

@@ -35,7 +35,7 @@ RSpec.describe Rental, type: :model do
   describe 'associations' do
     it 'belongs to a user' do
       expect(subject.user).to be_instance_of(User)
-    end    
+    end
     it 'is the instance of user' do
       expect(subject.user).to be_instance_of(User)
     end

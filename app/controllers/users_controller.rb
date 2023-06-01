@@ -34,7 +34,7 @@ class UsersController < ApplicationController
     @user.destroy
     render json: 'User deleted successfully'
   end
-  
+
   private
 
   def user_params
