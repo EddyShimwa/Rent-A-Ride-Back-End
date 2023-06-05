@@ -22,10 +22,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_30_101520) do
     t.decimal "price", precision: 10, scale: 2
     t.integer "rent_per_day"
     t.bigint "user_id", null: false
-    t.string "car_image_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_cars_on_user_id"
+  end
+
+  create_table "images", force: :cascade do |t|
+    t.string "url"
+    t.bigint "car_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["car_id"], name: "index_images_on_car_id"
   end
 
   create_table "rentals", force: :cascade do |t|
@@ -50,6 +57,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_30_101520) do
   end
 
   add_foreign_key "cars", "users"
+  add_foreign_key "images", "cars"
   add_foreign_key "rentals", "cars"
   add_foreign_key "rentals", "users"
 end
