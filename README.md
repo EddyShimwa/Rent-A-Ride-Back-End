@@ -65,7 +65,7 @@ Click [here](https://github.com/EddyShimwa/Rent-A-Ride) to access the front end 
 
 ### API Documentation <a name="api-documentation"></a>
 
-- Check [swagger documentation]()
+- Check [swagger documentation]
 
 ### Kanban board <a name="kanban"></a>
 - [Link to board](https://github.com/users/EddyShimwa/projects/3)
@@ -97,8 +97,9 @@ In order to run this project you need:
 Clone this repository to your desired folder:
 
 ```sh
-  cd my-folder
+ 
   git clone https://github.com/EddyShimwa/Rent-A-Ride-Back-End.git
+   cd Rent-A-Ride-Back-End
 ```
 
 ### Install
@@ -106,7 +107,6 @@ Clone this repository to your desired folder:
 Install this project with:
 
 ```sh
-  cd Rent-A-Ride-Back-End
   gem install
 
 ```
@@ -172,7 +172,9 @@ bundle exec rspec spec
 <!-- FUTURE FEATURES -->
 
 ## 🔭 Future Features <a name="future-features"></a>
-
+- **Add rating system**
+- **Updating car details**
+- **Add an admin to the database**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
