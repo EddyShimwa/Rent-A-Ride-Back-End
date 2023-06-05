@@ -203,9 +203,6 @@ If you like this project star this repository
  
 I would like to thank microverse for this opportunity to learn
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- LICENSE -->
 
