@@ -20,7 +20,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_30_101520) do
     t.string "description"
     t.integer "rating"
     t.decimal "price", precision: 10, scale: 2
-    t.decimal "rent_per_day"
+    t.integer "rent_per_day"
     t.bigint "user_id", null: false
     t.string "car_image_url"
     t.datetime "created_at", null: false
