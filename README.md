@@ -62,14 +62,13 @@
 ### Rent-A-Ride <a name="frontend"></a>
 
 Click [here](https://github.com/EddyShimwa/Rent-A-Ride) to access the front end app that was built with react
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### API Documentation <a name="api-documentation"></a>
 
 - Check [swagger documentation]()
 
 ### Kanban board <a name="kanban"></a>
-- [Link to board](https://github.com/users/EddyShimwa/projects/3))
+- [Link to board](https://github.com/users/EddyShimwa/projects/3)
 - Our team consists of 3 members: @kennedyowusu @EddyShimwa @Piercel2022 
 <!-- LIVE DEMO -->
 
