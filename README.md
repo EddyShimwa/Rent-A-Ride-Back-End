@@ -3,7 +3,7 @@
 <div align="center">
 
 
-  <h3><b>Rent-A-Ride</b></h3>
+  <h3><b>Rent-A-Ride-Back-End</b></h3>
 
 </div>
 
@@ -30,18 +30,18 @@
 - [📝 License](#license)
 
 
-# 📖 Rent-A-Ride <a name="about-project"></a>
+# 📖 Rent-A-Ride-Back-End <a name="about-project"></a>
 
-**Rent-A-Ride is a Api built with Ruby on Rails for car rental management system. API allows to do a car rental, add a new car or delete an existing one.** 
+**Rent-A-Ride-Back-End is a Api built with Ruby on Rails for car rental management system. API allows to do a car rental, add a new car or delete an existing one.** 
 
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
 
 <details>
-  <summary>Client</summary>
+  <summary>Rails API</summary>
   <ul>
-    <li>Ruby on Rails</li>
+    <li><a href="https://www.rubyonrails.org/">Ruby on Rails</a></li>
   </ul>
 
 </details>
@@ -54,9 +54,23 @@
 </details>
 
 ### Key Features <a name="key-features"></a>
+- **See various car models**
+- **Reserve cars**
+- **Add cars**
+- **Delete cars**
 
+### Rent-A-Ride <a name="frontend"></a>
+
+Click [here](https://github.com/EddyShimwa/Rent-A-Ride) to access the front end app that was built with react
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+### API Documentation <a name="api-documentation"></a>
+
+- Check [swagger documentation]()
+
+### Kanban board <a name="kanban"></a>
+- [Link to board](https://github.com/users/EddyShimwa/projects/3))
+- Our team consists of 3 members: @kennedyowusu @EddyShimwa @Piercel2022 
 <!-- LIVE DEMO -->
 
 ## 🚀 Live Demo <a name="live-demo"></a>
@@ -72,7 +86,8 @@ To get a local copy up and running, follow these steps.
 ### Prerequisites
 
 In order to run this project you need:
-
+- Install [ruby](https://www.ruby-lang.org/en/) 
+- Install [Postgresql](https://www.postgresql.org/).
 
 ```sh
  gem install rails
@@ -92,25 +107,45 @@ Clone this repository to your desired folder:
 Install this project with:
 
 ```sh
-  cd DriveTime-Back-End
+  cd Rent-A-Ride-Back-End
   gem install
 
 ```
 
 ### Usage
+To run the project, follow the next steps:
 
-To run the project, execute the following command:
+- Create database with the following command:
 
-```sh
-  rails server
+```shell
+rails db:create
 ```
+
+- Apply migrations with the following command:
+
+```shell
+rails db:migrate
+```
+
+- [Optional] Run the following command to fill the database with data:
+
+```shell
+rails db:seed
+```
+
+- Run the app by executing:
+
+```shell
+rails s --port=1800
+```
+
 
 ### Run tests
 
 To run tests, run the following command:
 
 ```sh
-gem install rspec
+bundle exec rspec spec
 ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
