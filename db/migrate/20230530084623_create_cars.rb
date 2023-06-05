@@ -8,7 +8,7 @@ class CreateCars < ActiveRecord::Migration[7.0]
       t.decimal :price, precision: 10, scale: 2
       t.decimal :rent_per_day
       t.references :user, null: false, foreign_key: true
-
+      t.string :car_image_url
       t.timestamps
     end
   end
