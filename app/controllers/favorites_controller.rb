@@ -16,7 +16,6 @@ class FavoritesController < ApplicationController
     else
       render json: { error: 'failed to create favorite' }, status: :not_acceptable
     end
-
   end
 
   def destroy
