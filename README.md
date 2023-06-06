@@ -9,30 +9,31 @@
 
 # 📗 Table of Contents
 
-- [📖 About the Project](#about-project)
-  - [🛠 Built With](#built-with)
-    - [Tech Stack](#tech-stack)
-    - [Key Features](#key-features)
-  - [🚀 Live Demo](#live-demo)
-- [💻 Getting Started](#getting-started)
-  - [Setup](#setup)
-  - [Prerequisites](#prerequisites)
-  - [Install](#install)
-  - [Usage](#usage)
-  - [Run tests](#run-tests)
-  - [Deployment](#deployment)
-- [👥 Authors](#authors)
-- [🔭 Future Features](#future-features)
-- [🤝 Contributing](#contributing)
-- [⭐️ Show your support](#support)
-- [🙏 Acknowledgements](#acknowledgements)
-- [❓ FAQ (OPTIONAL)](#faq)
-- [📝 License](#license)
+- [📗 Table of Contents](#-table-of-contents)
+- [📖 Rent-A-Ride-Back-End ](#-rent-a-ride-back-end-)
+  - [🛠 Built With ](#-built-with-)
+    - [Tech Stack ](#tech-stack-)
+    - [Key Features ](#key-features-)
+    - [Rent-A-Ride ](#rent-a-ride-)
+    - [API Documentation ](#api-documentation-)
+    - [Kanban board ](#kanban-board-)
+  - [💻 Getting Started ](#-getting-started-)
+    - [Prerequisites](#prerequisites)
+    - [Setup](#setup)
+    - [Install](#install)
+    - [Usage](#usage)
+    - [Run tests](#run-tests)
+  - [👥 Authors ](#-authors-)
+  - [🔭 Future Features ](#-future-features-)
+  - [🤝 Contributing ](#-contributing-)
+  - [⭐️ Show your support ](#️-show-your-support-)
+  - [🙏 Acknowledgments ](#-acknowledgments-)
+  - [📝 License ](#-license-)
 
 
 # 📖 Rent-A-Ride-Back-End <a name="about-project"></a>
 
-**Rent-A-Ride-Back-End is a Api built with Ruby on Rails for car rental management system. API allows to do a car rental, add a new car or delete an existing one.** 
+**Rent-A-Ride Backend is a Api built with Ruby on Rails for car rental management system. API allows to do a car rental, add a new car or delete an existing one.**
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -54,29 +55,32 @@
 </details>
 
 ### Key Features <a name="key-features"></a>
-- **See various car models**
-- **Reserve cars**
-- **Add cars**
-- **Delete cars**
+- Create an API endpint by rails.
+- Fetch Available Cars
+- Add Car
+- Delete cars
+- Favorite Car
+- Delete Car
 
 ### Rent-A-Ride <a name="frontend"></a>
 
-Click [here](https://github.com/EddyShimwa/Rent-A-Ride) to access the front end app that was built with react
+Click [Here](https://github.com/EddyShimwa/Rent-A-Ride) to access the frontend app that was built with react and redux toolkit
 
 ### API Documentation <a name="api-documentation"></a>
 
-- Check [swagger documentation]
+- [API Documentation](https://documenter.getpostman.com/view/16578935/2s93sZ5taj)
 
 ### Kanban board <a name="kanban"></a>
-- [Link to board](https://github.com/users/EddyShimwa/projects/3)
-- Our team consists of 3 members: @kennedyowusu @EddyShimwa @Piercel2022 
-<!-- LIVE DEMO -->
+- [Link to Kanban Board](https://github.com/users/EddyShimwa/projects/3)
 
-## 🚀 Live Demo <a name="live-demo"></a>
 
+**There are four collaborators in this team**
+
+- [Kennedy Owusu](https://github.com/kennedyowusu)
+- [EddyShimwa](https://github.com/EddyShimwa)
+- [Pierre Celestin](https://github.com/Piercel2022)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
@@ -85,7 +89,7 @@ To get a local copy up and running, follow these steps.
 ### Prerequisites
 
 In order to run this project you need:
-- Install [ruby](https://www.ruby-lang.org/en/) 
+- Install [ruby](https://www.ruby-lang.org/en/)
 - Install [Postgresql](https://www.postgresql.org/).
 
 ```sh
@@ -97,7 +101,7 @@ In order to run this project you need:
 Clone this repository to your desired folder:
 
 ```sh
- 
+
   git clone https://github.com/EddyShimwa/Rent-A-Ride-Back-End.git
    cd Rent-A-Ride-Back-End
 ```
@@ -172,9 +176,10 @@ bundle exec rspec spec
 <!-- FUTURE FEATURES -->
 
 ## 🔭 Future Features <a name="future-features"></a>
-- **Add rating system**
-- **Updating car details**
-- **Add an admin to the database**
+- [ ] **Add rating system**
+- [ ] **Updating car details**
+- [ ] **Add an admin to the database**
+- [ ] **Better user interface**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -200,8 +205,12 @@ If you like this project star this repository
 <!-- ACKNOWLEDGEMENTS -->
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
- 
-I would like to thank microverse for this opportunity to learn
+
+- I would like to thank all code reviewers and coding partners for making this project better.
+
+- A big thank you to:
+- [x] https://www.behance.net/gallery/37706679/Circle-(Landing-page-Dashboard-Mobile-App)
+- For such a beautiful UI design.
 
 
 <!-- LICENSE -->
