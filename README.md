@@ -75,7 +75,7 @@ Click [Here](https://github.com/EddyShimwa/Rent-A-Ride) to access the frontend a
 - [Link to Kanban Board](https://github.com/users/EddyShimwa/projects/3)
 
 
-**There are four collaborators in this team**
+**There are three collaborators in this team**
 
 - [Kennedy Owusu](https://github.com/kennedyowusu)
 - [EddyShimwa](https://github.com/EddyShimwa)
