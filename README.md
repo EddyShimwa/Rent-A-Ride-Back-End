@@ -149,7 +149,7 @@ rails s --port=1800
 To run tests, run the following command:
 
 ```sh
-bundle exec rspec spec
+rspec spec
 ```
 
 <!-- UML -->
