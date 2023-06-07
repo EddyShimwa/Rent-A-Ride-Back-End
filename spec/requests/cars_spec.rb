@@ -19,12 +19,12 @@ describe 'Cars', type: :request do
         'Content-Type': 'application/json'
       }
 
-      get('/cars', headers:)
+      get '/cars', headers: headers
       expect(response).to have_http_status(:ok)
     end
   end
 
-  # # POST api/v1/cars
+  # POST api/v1/cars
   describe 'POST /create with empty or invalid JWT token' do
     it 'should return unprocessable entity status code' do
       params = {
@@ -43,7 +43,7 @@ describe 'Cars', type: :request do
         'Content-Type': 'application/json'
       }
 
-      post('/cars', params: params.to_json, headers:)
+      post '/cars', params: params.to_json, headers: headers
       expect(response).to have_http_status(:unprocessable_entity)
     end
   end
@@ -71,7 +71,7 @@ describe 'Cars', type: :request do
         'Content-Type': 'application/json'
       }
 
-      post('/cars', params: params.to_json, headers:)
+      post '/cars', params: params.to_json, headers: headers
       expect(response).to have_http_status(:unprocessable_entity)
     end
   end
