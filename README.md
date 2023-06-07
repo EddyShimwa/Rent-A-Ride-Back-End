@@ -23,6 +23,7 @@
     - [Install](#install)
     - [Usage](#usage)
     - [Run tests](#run-tests)
+  - [⚙️ UML DIAGRAM](#️-uml-diagram)
   - [👥 Authors ](#-authors-)
   - [🔭 Future Features ](#-future-features-)
   - [🤝 Contributing ](#-contributing-)
@@ -150,6 +151,12 @@ To run tests, run the following command:
 ```sh
 bundle exec rspec spec
 ```
+
+<!-- UML -->
+
+## ⚙️ UML DIAGRAM
+
+![UML DIAGRAM](db/UML.png)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
