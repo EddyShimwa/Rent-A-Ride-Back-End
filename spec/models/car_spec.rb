@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Rental, type: :model do
   subject do
     myuser = User.create(email: 'example@example.com', password: 'password', name: 'Peter')
-    Car.create(name: 'Chevrolet Silverado', model: '1500 Custom', description: 'Popular full-size pickup truck manufactured by General Motors under the Chevrolet brand.', rating: 2, price: 70.6, rent_per_day: 98.99, user_id: myuser.id)
+    Car.create(name: 'Chevrolet Silverado', model: '1500 Custom', description: 'Popular full-size pickup truck manufactured by General Motors under the Chevrolet brand.', car_image_url: "www.example.png", rating: 2, price: 70.6, rent_per_day: 98.99, user_id: myuser.id)
   end
   before { subject.save }
 
