@@ -56,7 +56,7 @@
 </details>
 
 ### Key Features <a name="key-features"></a>
-- Create an API endpint by rails.
+- Create an API endpoint by rails.
 - Fetch Available Cars
 - Add Car
 - Delete cars
