@@ -19,7 +19,7 @@ describe 'Cars', type: :request do
         'Content-Type': 'application/json'
       }
 
-      get '/cars', headers: headers
+      get('/cars', headers:)
       expect(response).to have_http_status(:ok)
     end
   end
@@ -43,7 +43,7 @@ describe 'Cars', type: :request do
         'Content-Type': 'application/json'
       }
 
-      post '/cars', params: params.to_json, headers: headers
+      post('/cars', params: params.to_json, headers:)
       expect(response).to have_http_status(:unprocessable_entity)
     end
   end
@@ -71,7 +71,7 @@ describe 'Cars', type: :request do
         'Content-Type': 'application/json'
       }
 
-      post '/cars', params: params.to_json, headers: headers
+      post('/cars', params: params.to_json, headers:)
       expect(response).to have_http_status(:unprocessable_entity)
     end
   end
